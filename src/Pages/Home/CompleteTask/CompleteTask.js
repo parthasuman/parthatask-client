@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Container } from "react-bootstrap";
+
 import { useLoaderData } from "react-router-dom";
 
 const CompleteTask = () => {
@@ -8,7 +9,7 @@ const CompleteTask = () => {
 
   const handleDelete = (user) => {
     const agree = window.confirm(
-      `Are you sure you want to deleye: ${user.text}`
+      `Are you sure you want to delete: ${user.name}`
     );
     if (agree) {
       // console.log("deleting user with id: ", user._id);
@@ -35,8 +36,10 @@ const CompleteTask = () => {
         <div>
           {displayUsers.map((user) => (
             <p key={user._id}>
-              {user.text}
-              <button onClick={() => handleDelete(user)}>Delete</button>
+              {user.name}
+              <button className="mx-4" onClick={() => handleDelete(user)}>
+                Delete
+              </button>
               <button>Not Complete</button>
             </p>
           ))}

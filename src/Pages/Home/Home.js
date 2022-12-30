@@ -7,10 +7,10 @@ const Home = () => {
   const handleAddTaskSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
-    const text = form.text.value;
+    const name = form.name.value;
 
     const allTask = {
-      text,
+      name,
     };
 
     fetch("https://partha-task-server.vercel.app/allTasks", {
@@ -36,7 +36,7 @@ const Home = () => {
       <Form onSubmit={handleAddTaskSubmit}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Enter your daily task</Form.Label>
-          <Form.Control name="text" type="text" placeholder="Daily Task" />
+          <Form.Control name="name" type="text" placeholder="Daily Task" />
         </Form.Group>
 
         <Button variant="primary" type="submit">

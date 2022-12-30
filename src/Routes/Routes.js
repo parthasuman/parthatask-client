@@ -8,6 +8,7 @@ import Login from "../Pages/Home/Login/Login";
 import Register from "../Pages/Home/Login/Register/Register";
 import Media from "../Pages/Media/Media";
 import MyTask from "../Pages/MyTask/MyTask";
+import Update from "../Pages/Update/Update";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
@@ -38,6 +39,12 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>,
+      },
+      {
+        path: "/update/:id",
+        element: <Update></Update>,
+        loader: ({ params }) =>
+          fetch(`https://partha-task-server.vercel.app/allTasks/${params.id}`),
       },
       {
         path: "/details",
